@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../data/theme/colors.dart';
 import '../../../data/theme/custom_widget.dart';
@@ -11,64 +12,64 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: const Text('LoginView'),
+        backgroundColor: softNavy,
+        title: Text("LOG IN",
+            style: GoogleFonts.poppins(
+                textStyle: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: softWhite))),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: ConstrainedBox(
-          constraints:
-              BoxConstraints(minHeight: MediaQuery.of(context).size.height),
-          child: IntrinsicHeight(
-              child: Padding(
-            padding: const EdgeInsets.all(40),
-            child: Column(
-              children: [
-                inputText(
-                    readOnly: false,
-                    controller: controller.emailC,
-                    hintText: 'Email',
-                    textInputAction: TextInputAction.done,
-                    keyboardType: TextInputType.emailAddress),
-                const SizedBox(
-                  height: 20,
-                ),
-                inputPassword(
-                    controller: controller.passwordC,
-                    obscureText: controller.isPasswordHide,
-                    onPressed: () {
-                      controller.isPasswordHide.toggle();
-                    },
-                    isPasswordHide: controller.isPasswordHide,
-                    hintText: 'Password'),
-                const SizedBox(
-                  height: 20,
-                ),
-                Obx(() => gradientButton(
-                    onPressed: () async {
-                      if (controller.isLoading.isFalse) {
-                        await controller.login();
-                      }
-                    },
-                    buttonText: (controller.isLoading.isFalse
-                        ? 'LOG IN'
-                        : 'LOADING...'))),
-                const SizedBox(
-                  height: 20,
-                ),
-                linkText(
-                    onPressed: () {
-                      // Get.toNamed(Routes.FORGOT_PASSWORD);
-                    },
-                    color: seaBlue,
-                    textButtonStyleFromSize: 16,
-                    textStyleSize: 16,
-                    text: 'Lupa password?')
-              ],
-            ),
-          )),
+      body: ListView(padding: const EdgeInsets.all(20), children: [
+        Text("Email",
+            style: GoogleFonts.poppins(
+                textStyle: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: softNavy))),
+        const SizedBox(
+          height: 5,
         ),
-      ),
+        inputText(
+            readOnly: false,
+            controller: controller.emailC,
+            hintText: '',
+            textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.name),
+        const SizedBox(
+          height: 20,
+        ),
+        Text("Password",
+            style: GoogleFonts.poppins(
+                textStyle: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: softNavy))),
+        const SizedBox(
+          height: 5,
+        ),
+        inputPassword(
+            controller: controller.passwordC,
+            obscureText: controller.isPasswordHide,
+            onPressed: () {
+              controller.isPasswordHide.toggle();
+            },
+            isPasswordHide: controller.isPasswordHide,
+            hintText: ""),
+        const SizedBox(
+          height: 30,
+        ),
+        Obx(() => basicButton(
+            onPressed: () async {
+              if (controller.isLoading.isFalse) {
+                await controller.login();
+              }
+            },
+            buttonText: controller.isLoading.isFalse ? 'Log in' : 'Loading...'))
+      ]),
     );
   }
 }

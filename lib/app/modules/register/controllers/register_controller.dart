@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterController extends GetxController {
@@ -17,6 +18,19 @@ class RegisterController extends GetxController {
 
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore fireStore = FirebaseFirestore.instance;
+
+  List<DropdownMenuItem<String>> menuItems = [
+    const DropdownMenuItem(
+      value: 'Laki-laki',
+      child: Text('Laki-laki'),
+    ),
+    const DropdownMenuItem(
+      value: 'Perempuan',
+      child: Text('Perempuan'),
+    ),
+  ].obs;
+
+  var selectedGender = 'Laki-laki'.obs;
 
   Future<void> addNewUser() async {
     try {
@@ -36,7 +50,7 @@ class RegisterController extends GetxController {
           "last_name": lastNameC.text,
           "phone_number": phoneNumberC.text,
           "email": emailC.text,
-          "gender": genderC.text,
+          "gender": selectedGender.value,
           "graduate_year": graduateYearC.text,
           "role": "alumni",
           "create_at": DateTime.now(),

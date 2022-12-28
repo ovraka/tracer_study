@@ -35,6 +35,9 @@ class LoginController extends GetxController {
       } finally {
         isLoading.value = false;
       }
+    } else {
+      Get.snackbar(
+          'Terjadi kesalahan', 'Email dan Password tidak boleh kosong');
     }
   }
 }

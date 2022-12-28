@@ -19,6 +19,7 @@ dependencies:
   svg_icon: ^0.0.1
   image_picker: 0.8.6
   path_provider: ^2.0.11
+  dropdown_button2: ^1.9.2
 
 dev_dependencies:
   flutter_lints: ^2.0.0
