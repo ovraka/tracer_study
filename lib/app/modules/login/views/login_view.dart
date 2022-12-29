@@ -25,6 +25,58 @@ class LoginView extends GetView<LoginController> {
         centerTitle: true,
       ),
       body: ListView(padding: const EdgeInsets.all(20), children: [
+        const SizedBox(
+          height: 30,
+        ),
+        SizedBox(
+          width: 150,
+          height: 150,
+          child: CircleAvatar(
+            child: ClipOval(
+              child: Image.network(
+                'https://firebasestorage.googleapis.com/v0/b/tracer-study-8c1a7.appspot.com/o/usm.png?alt=media&token=ccd139b7-7f57-4648-925a-13e9267c1dde',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Center(
+          child: RichText(
+            text: TextSpan(
+              text: 'ALUMNI ',
+              style: GoogleFonts.poppins(
+                  textStyle: const TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      color: softNavy)),
+              children: const [
+                TextSpan(
+                    text: 'CONNECT.',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w100,
+                        color: softNavy)),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Center(
+          child: Text("Universitas Saintek Muhammadiyah",
+              style: GoogleFonts.poppins(
+                  textStyle: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: softNavy))),
+        ),
+        const SizedBox(
+          height: 50,
+        ),
         Text("Email",
             style: GoogleFonts.poppins(
                 textStyle: const TextStyle(

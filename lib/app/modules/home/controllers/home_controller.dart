@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -10,8 +11,14 @@ import '../../../routes/app_pages.dart';
 
 class HomeController extends GetxController {
   FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   RxBool isLoading = false.obs;
+
+  Future<DocumentSnapshot<Map<String, dynamic>>> streamRole() async {
+    String uid = auth.currentUser!.uid;
+    return await firestore.collection('user').doc(uid).get();
+  }
 
   void logOut() async {
     if (isLoading.isFalse) {

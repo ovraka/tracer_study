@@ -12,6 +12,8 @@ import '../modules/new_password/bindings/new_password_binding.dart';
 import '../modules/new_password/views/new_password_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/questions_survey/bindings/questions_survey_binding.dart';
+import '../modules/questions_survey/views/questions_survey_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/settings/bindings/settings_binding.dart';
@@ -71,6 +73,11 @@ class AppPages {
       name: _Paths.FORGOT_PASSWORD,
       page: () => const ForgotPasswordView(),
       binding: ForgotPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.QUESTIONS_SURVEY,
+      page: () => const QuestionsSurveyView(),
+      binding: QuestionsSurveyBinding(),
     ),
   ];
 }

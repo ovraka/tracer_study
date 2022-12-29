@@ -191,7 +191,7 @@ class RegisterView extends GetView<RegisterController> {
             Obx(() => basicButton(
                 onPressed: () async {
                   if (controller.isLoading.isFalse) {
-                    await controller.addNewUser();
+                    await controller.validasiOperator();
                   }
                 },
                 buttonText: controller.isLoading.isFalse

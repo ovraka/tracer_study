@@ -12,6 +12,7 @@ abstract class Routes {
   static const TRACER_STUDY = _Paths.TRACER_STUDY;
   static const NEW_PASSWORD = _Paths.NEW_PASSWORD;
   static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
+  static const QUESTIONS_SURVEY = _Paths.QUESTIONS_SURVEY;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const TRACER_STUDY = '/tracer-study';
   static const NEW_PASSWORD = '/new-password';
   static const FORGOT_PASSWORD = '/forgot-password';
+  static const QUESTIONS_SURVEY = '/questions-survey';
 }
