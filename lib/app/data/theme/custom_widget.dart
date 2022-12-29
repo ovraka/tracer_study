@@ -115,3 +115,28 @@ Widget basicButton(
     ),
   );
 }
+
+Widget linkText(
+    {required Function() onPressed,
+    required double textButtonStyleFromSize,
+    required double textStyleSize,
+    required Color color,
+    required String text}) {
+  return Container(
+    alignment: Alignment.bottomCenter,
+    child: TextButton(
+      style: TextButton.styleFrom(
+        textStyle: TextStyle(fontSize: textButtonStyleFromSize),
+      ),
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: GoogleFonts.poppins(
+            textStyle: TextStyle(
+                fontSize: textStyleSize,
+                fontWeight: FontWeight.w500,
+                color: color)),
+      ),
+    ),
+  );
+}

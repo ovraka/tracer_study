@@ -15,6 +15,7 @@ class HomeController extends GetxController {
 
   void logOut() async {
     if (isLoading.isFalse) {
+      print(auth.currentUser);
       Get.defaultDialog(
         backgroundColor: softWhite,
         title: "Perhatian!",

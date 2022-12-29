@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../data/theme/colors.dart';
 import '../../../data/theme/custom_widget.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -15,7 +16,7 @@ class LoginView extends GetView<LoginController> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         backgroundColor: softNavy,
-        title: Text("LOG IN",
+        title: Text("LOGIN",
             style: GoogleFonts.poppins(
                 textStyle: const TextStyle(
                     fontSize: 18,
@@ -68,7 +69,18 @@ class LoginView extends GetView<LoginController> {
                 await controller.login();
               }
             },
-            buttonText: controller.isLoading.isFalse ? 'Log in' : 'Loading...'))
+            buttonText: controller.isLoading.isFalse ? 'LOGIN' : 'Loading...')),
+        const SizedBox(
+          height: 20,
+        ),
+        linkText(
+            onPressed: () {
+              Get.toNamed(Routes.FORGOT_PASSWORD);
+            },
+            color: softNavy,
+            textButtonStyleFromSize: 16,
+            textStyleSize: 16,
+            text: 'Lupa password?')
       ]),
     );
   }

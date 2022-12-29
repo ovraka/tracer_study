@@ -16,7 +16,7 @@ class RegisterView extends GetView<RegisterController> {
         backgroundColor: Colors.grey[200],
         appBar: AppBar(
           backgroundColor: softNavy,
-          title: Text("SIGN UP",
+          title: Text("CREATE NEW ACCOUNT",
               style: GoogleFonts.poppins(
                   textStyle: const TextStyle(
                       fontSize: 18,
@@ -195,7 +195,7 @@ class RegisterView extends GetView<RegisterController> {
                   }
                 },
                 buttonText: controller.isLoading.isFalse
-                    ? 'Tambah Pegawai'
+                    ? 'CREATE ACCOUNT'
                     : 'Loading...'))
           ],
         ));

@@ -36,7 +36,7 @@ class RegisterController extends GetxController {
     try {
       final credential = await auth.createUserWithEmailAndPassword(
         email: emailC.text,
-        password: 'uhamka123',
+        password: 'usm2023',
       );
 
       if (credential.user != null) {
@@ -56,6 +56,8 @@ class RegisterController extends GetxController {
           "create_at": DateTime.now(),
         });
 
+        await credential.user!.sendEmailVerification();
+        Get.back();
         Get.snackbar("Berhasil!", "Berhasil menambahkan user");
       }
     } on FirebaseAuthException catch (e) {
