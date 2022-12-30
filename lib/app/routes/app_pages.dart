@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
 
+import '../modules/edit_password/bindings/edit_password_binding.dart';
+import '../modules/edit_password/views/edit_password_view.dart';
+import '../modules/edit_profile/bindings/edit_profile_binding.dart';
+import '../modules/edit_profile/views/edit_profile_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -78,6 +82,16 @@ class AppPages {
       name: _Paths.QUESTIONS_SURVEY,
       page: () => const QuestionsSurveyView(),
       binding: QuestionsSurveyBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PROFILE,
+      page: () => const EditProfileView(),
+      binding: EditProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PASSWORD,
+      page: () => const EditPasswordView(),
+      binding: EditPasswordBinding(),
     ),
   ];
 }
