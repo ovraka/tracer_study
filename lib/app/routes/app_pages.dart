@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/detail_alumni/bindings/detail_alumni_binding.dart';
+import '../modules/detail_alumni/views/detail_alumni_view.dart';
 import '../modules/edit_password/bindings/edit_password_binding.dart';
 import '../modules/edit_password/views/edit_password_view.dart';
 import '../modules/edit_profile/bindings/edit_profile_binding.dart';
@@ -92,6 +94,11 @@ class AppPages {
       name: _Paths.EDIT_PASSWORD,
       page: () => const EditPasswordView(),
       binding: EditPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_ALUMNI,
+      page: () => DetailAlumniView(),
+      binding: DetailAlumniBinding(),
     ),
   ];
 }

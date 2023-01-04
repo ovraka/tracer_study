@@ -15,6 +15,7 @@ abstract class Routes {
   static const QUESTIONS_SURVEY = _Paths.QUESTIONS_SURVEY;
   static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
   static const EDIT_PASSWORD = _Paths.EDIT_PASSWORD;
+  static const DETAIL_ALUMNI = _Paths.DETAIL_ALUMNI;
 }
 
 abstract class _Paths {
@@ -31,4 +32,5 @@ abstract class _Paths {
   static const QUESTIONS_SURVEY = '/questions-survey';
   static const EDIT_PROFILE = '/edit-profile';
   static const EDIT_PASSWORD = '/edit-password';
+  static const DETAIL_ALUMNI = '/detail-alumni';
 }

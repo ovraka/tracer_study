@@ -170,6 +170,76 @@ class RegisterView extends GetView<RegisterController> {
             const SizedBox(
               height: 20,
             ),
+            Text("Fakultas",
+                style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: softNavy))),
+            const SizedBox(
+              height: 5,
+            ),
+            Obx(() => Container(
+                  decoration: const BoxDecoration(color: Colors.white),
+                  child: DropdownButtonFormField2(
+                    items: controller.listFakultas,
+                    hint: Text('Pilih fakultas',
+                        style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                color: softGrey))),
+                    decoration: const InputDecoration(
+                        isDense: true,
+                        contentPadding: EdgeInsets.zero,
+                        border: InputBorder.none),
+                    dropdownDecoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(5)),
+                    buttonHeight: 50,
+                    buttonPadding: const EdgeInsets.only(left: 0, right: 15),
+                    onChanged: (value) {
+                      controller.selectedFakultas.value = value.toString();
+                    },
+                  ),
+                )),
+            const SizedBox(
+              height: 20,
+            ),
+            Text("Program Studi",
+                style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: softNavy))),
+            const SizedBox(
+              height: 5,
+            ),
+            Obx(() => Container(
+                  decoration: const BoxDecoration(color: Colors.white),
+                  child: DropdownButtonFormField2(
+                    items: controller.listProdi,
+                    hint: Text('Pilih program studi',
+                        style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                color: softGrey))),
+                    decoration: const InputDecoration(
+                        isDense: true,
+                        contentPadding: EdgeInsets.zero,
+                        border: InputBorder.none),
+                    dropdownDecoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(5)),
+                    buttonHeight: 50,
+                    buttonPadding: const EdgeInsets.only(left: 0, right: 15),
+                    onChanged: (value) {
+                      controller.selectedProdi.value = value.toString();
+                    },
+                  ),
+                )),
+            const SizedBox(
+              height: 20,
+            ),
             Text("Tahun Lulus",
                 style: GoogleFonts.poppins(
                     textStyle: const TextStyle(

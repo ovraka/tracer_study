@@ -43,7 +43,7 @@ class EditProfileView extends GetView<EditProfileController> {
                 controller.emailC.text = user['email'];
 
                 String defaultImage =
-                    "https://ui-avatars.com/api/?name=${user["first_name"]}&&background=4d5d7e&color=f9fbfa&&size=200";
+                    "https://ui-avatars.com/api/?name=${user["first_name"]} ${user["last_name"]}&&background=4d5d7e&color=f9fbfa&&size=200";
                 return ListView(
                   padding: const EdgeInsets.all(20),
                   children: [

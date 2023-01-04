@@ -39,6 +39,56 @@ class RegisterController extends GetxController {
 
   var selectedGender = 'Laki-laki'.obs;
 
+  List<DropdownMenuItem<String>> listFakultas = [
+    const DropdownMenuItem(
+      value: 'Fakultas Ilmu Komputer',
+      child: Text('Filkom'),
+    ),
+    const DropdownMenuItem(
+      value: 'Fakultas Ilmu Komunikasi Bisnis',
+      child: Text('Fikombis'),
+    ),
+    const DropdownMenuItem(
+      value: 'Fakultas Ilmu Kesehatan',
+      child: Text('Fikes'),
+    ),
+  ].obs;
+
+  var selectedFakultas = 'Fakultas Ilmu Komputer'.obs;
+
+  List<DropdownMenuItem<String>> listProdi = [
+    const DropdownMenuItem(
+      value: 'Sistem Informasi',
+      child: Text('Sistem Informasi'),
+    ),
+    const DropdownMenuItem(
+      value: 'Teknik Informatika',
+      child: Text('Teknik Informatika'),
+    ),
+    const DropdownMenuItem(
+      value: 'Sains Data',
+      child: Text('Sains Data'),
+    ),
+    const DropdownMenuItem(
+      value: 'Film dan Televisi',
+      child: Text('Film dan Televisi'),
+    ),
+    const DropdownMenuItem(
+      value: 'Sains Komunikasi',
+      child: Text('Sains Komunikasi'),
+    ),
+    const DropdownMenuItem(
+      value: 'Kewirausahaan',
+      child: Text('Kewirausahaan'),
+    ),
+    const DropdownMenuItem(
+      value: 'Kebidanan',
+      child: Text('Kebidanan'),
+    )
+  ].obs;
+
+  var selectedProdi = 'Sistem Informasi'.obs;
+
   Future<void> addNewUser() async {
     if (passwordValidOperatorC.text.isNotEmpty) {
       try {
@@ -65,6 +115,8 @@ class RegisterController extends GetxController {
             "phone_number": phoneNumberC.text,
             "email": emailC.text,
             "gender": selectedGender.value,
+            "fakultas": selectedFakultas.value,
+            "program_studi": selectedProdi.value,
             "graduate_year": graduateYearC.text,
             "role": "alumni",
             "create_at": DateTime.now(),

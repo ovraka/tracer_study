@@ -1,23 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class ListAlumniController extends GetxController {
-  //TODO: Implement ListAlumniController
+  FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore fireStore = FirebaseFirestore.instance;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  Future<QuerySnapshot<Map<String, dynamic>>> listAlumni() async {
+    final userRef = fireStore.collection('user');
+    final query = userRef.where('role', isEqualTo: 'alumni').get();
+    print(query);
+    return await query;
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
