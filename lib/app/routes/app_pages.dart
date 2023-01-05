@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/add_question/bindings/add_question_binding.dart';
+import '../modules/add_question/views/add_question_view.dart';
 import '../modules/detail_alumni/bindings/detail_alumni_binding.dart';
 import '../modules/detail_alumni/views/detail_alumni_view.dart';
 import '../modules/edit_password/bindings/edit_password_binding.dart';
@@ -99,6 +101,11 @@ class AppPages {
       name: _Paths.DETAIL_ALUMNI,
       page: () => DetailAlumniView(),
       binding: DetailAlumniBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_QUESTION,
+      page: () => const AddQuestionView(),
+      binding: AddQuestionBinding(),
     ),
   ];
 }

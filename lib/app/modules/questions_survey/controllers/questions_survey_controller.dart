@@ -1,23 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class QuestionsSurveyController extends GetxController {
-  //TODO: Implement QuestionsSurveyController
+  FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore fireStore = FirebaseFirestore.instance;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  Stream<QuerySnapshot<Map<String, dynamic>>> streamListQuestion() async* {
+    final questRef = fireStore.collection('question');
+    final query = questRef.orderBy('create_at', descending: true).snapshots();
+    yield* query;
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

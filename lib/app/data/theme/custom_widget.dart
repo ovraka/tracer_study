@@ -39,6 +39,34 @@ Widget inputText({
   );
 }
 
+Widget bigInputText({
+  required TextEditingController controller,
+  required String hintText,
+}) {
+  return Container(
+    height: 200,
+    padding: const EdgeInsets.only(left: 15, right: 15),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(5),
+      color: softWhite,
+    ),
+    child: TextFormField(
+      minLines: 1,
+      maxLines: 8,
+      cursorColor: softNavy,
+      keyboardType: TextInputType.multiline,
+      textInputAction: TextInputAction.next,
+      controller: controller,
+      decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: hintText,
+          hintStyle: GoogleFonts.poppins(
+              textStyle: const TextStyle(
+                  fontSize: 16, fontWeight: FontWeight.w400, color: softGrey))),
+    ),
+  );
+}
+
 Widget inputPassword({
   required TextEditingController controller,
   required RxBool obscureText,
