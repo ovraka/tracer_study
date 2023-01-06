@@ -8,6 +8,8 @@ import '../modules/edit_password/bindings/edit_password_binding.dart';
 import '../modules/edit_password/views/edit_password_view.dart';
 import '../modules/edit_profile/bindings/edit_profile_binding.dart';
 import '../modules/edit_profile/views/edit_profile_view.dart';
+import '../modules/edit_question/bindings/edit_question_binding.dart';
+import '../modules/edit_question/views/edit_question_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -106,6 +108,11 @@ class AppPages {
       name: _Paths.ADD_QUESTION,
       page: () => const AddQuestionView(),
       binding: AddQuestionBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_QUESTION,
+      page: () => EditQuestionView(),
+      binding: EditQuestionBinding(),
     ),
   ];
 }

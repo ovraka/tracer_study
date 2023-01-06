@@ -11,4 +11,12 @@ class QuestionsSurveyController extends GetxController {
     final query = questRef.orderBy('create_at', descending: true).snapshots();
     yield* query;
   }
+
+  void deleteQuestion(String uid) async {
+    try {
+      await fireStore.collection('question').doc(uid).delete();
+    } catch (e) {
+      Get.snackbar('Terjadi Kesalahan', 'Anda tidak dapat menghapus question');
+    }
+  }
 }

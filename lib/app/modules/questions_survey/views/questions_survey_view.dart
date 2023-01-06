@@ -86,43 +86,67 @@ class QuestionsSurveyView extends GetView<QuestionsSurveyController> {
                         children: [
                           SlidableAction(
                             flex: 2,
-                            onPressed: (context) {},
+                            onPressed: (context) {
+                              Get.toNamed(Routes.EDIT_QUESTION,
+                                  arguments: data);
+                            },
                             icon: Icons.edit,
                             backgroundColor: softNavy,
                           ),
                           SlidableAction(
-                            onPressed: (context) {},
+                            onPressed: (context) {
+                              controller.deleteQuestion(data['uid']);
+                            },
                             icon: Icons.delete,
                             backgroundColor: Colors.red,
                           ),
                         ],
                       ),
                       child: ListTile(
-                        contentPadding: const EdgeInsets.all(20),
-                        title: Text(
-                          data['category'],
-                          style: GoogleFonts.poppins(
-                            textStyle: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: softNavy),
+                          contentPadding: const EdgeInsets.all(20),
+                          title: Text(
+                            data['category'],
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: softNavy),
+                            ),
                           ),
-                        ),
-                        subtitle: Text(
-                          data['question'],
-                          style: GoogleFonts.poppins(
-                            textStyle: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w300,
-                                color: Colors.black),
+                          subtitle: Text(
+                            data['question'],
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.black),
+                            ),
                           ),
-                        ),
-                        trailing: const Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          size: 20,
-                          color: softGrey,
-                        ),
-                      ),
+                          trailing: const Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 20,
+                            color: softGrey,
+                          ),
+                          leading: data['category'] ==
+                                  "Masa TPB (Tahap Persiapan Bersama)"
+                              ? const Icon(Icons.groups_outlined)
+                              : data['category'] == "Internal Kampus"
+                                  ? const Icon(Icons.location_city_rounded)
+                                  : data['category'] == "Kompetensi"
+                                      ? const Icon(Icons.menu_book_rounded)
+                                      : data['category'] == "Pekerjaan" &&
+                                              data['category'] ==
+                                                  "Pekerjaan Utama: Bekerja" &&
+                                              data['category'] ==
+                                                  "Pekerjaan Utama" &&
+                                              data['category'] ==
+                                                  "Pekerjaan Utama: Wirausaha" &&
+                                              data['category'] ==
+                                                  "Pekerjaan Utama: Melanjutkan Studi" &&
+                                              data['category'] ==
+                                                  "Pekerjaan Utama: Tidak Bekerja"
+                                          ? const Icon(Icons.work_rounded)
+                                          : const SizedBox()),
                     );
                   });
             } else {
