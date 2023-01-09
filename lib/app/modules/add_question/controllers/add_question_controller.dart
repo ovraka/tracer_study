@@ -54,19 +54,20 @@ class AddQuestionController extends GetxController {
 
   var defaultValueCategory = 'Masa TPB (Tahap Persiapan Bersama)'.obs;
 
-  var uuid = RandomUuidGenerator().generate().toString().split('-').last;
+  var qid = RandomUuidGenerator().generate().toString().split('-').last;
 
   Future<void> addNewQuestion() async {
     if (questionC.text.isNotEmpty) {
       try {
+        var now = DateTime.now().toIso8601String();
         String adminId = auth.currentUser!.uid;
         isLoading.value = true;
-        await firestore.collection('question').doc(uuid).set({
-          "uid": uuid,
+        await firestore.collection('question').doc(qid).set({
+          "qid": qid,
           "category": defaultValueCategory.value,
           "question": questionC.text,
           "create_by": adminId,
-          "create_at": DateTime.now(),
+          "create_at": now,
         });
 
         Get.back();

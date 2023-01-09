@@ -95,7 +95,7 @@ class QuestionsSurveyView extends GetView<QuestionsSurveyController> {
                           ),
                           SlidableAction(
                             onPressed: (context) {
-                              controller.deleteQuestion(data['uid']);
+                              controller.deleteQuestion(data['qid']);
                             },
                             icon: Icons.delete,
                             backgroundColor: Colors.red,

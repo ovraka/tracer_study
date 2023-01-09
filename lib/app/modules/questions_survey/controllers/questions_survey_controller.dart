@@ -12,9 +12,9 @@ class QuestionsSurveyController extends GetxController {
     yield* query;
   }
 
-  void deleteQuestion(String uid) async {
+  void deleteQuestion(String qid) async {
     try {
-      await fireStore.collection('question').doc(uid).delete();
+      await fireStore.collection('question').doc(qid).delete();
     } catch (e) {
       Get.snackbar('Terjadi Kesalahan', 'Anda tidak dapat menghapus question');
     }
